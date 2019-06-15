@@ -41,6 +41,18 @@ grunt.initConfig({
         release: {
             src : '{LICENSE.md,README.md,HISTORY.md}',
             dest: 'build/'
+        },
+        js:{
+            src    : 'dist/*.min.js',
+            dest   : 'D:/mywork/yueliang/static/js/',
+            expand : true,
+            flatten: true
+        },
+        css:{
+            src    : 'build/pure-min.css',
+            dest   : 'D:/mywork/yueliang/static/css/',
+            expand : true,
+            flatten: true
         }
     },
 
@@ -50,7 +62,7 @@ grunt.initConfig({
         build: {
             files: [
                 {'build/base.css': [
-                    'bower_components/normalize-css/normalize.css',
+                    'build/normalize.css',
                     'build/base.css'
                 ]},
 
@@ -84,12 +96,14 @@ grunt.initConfig({
                 // Rollups
 
                 {'build/<%= nick %>.css': [
+                    'simple/css/bootstrap_simple_util.css',
                     'build/base.css',
                     'build/grids.css',
                     'build/buttons.css',
                     'build/forms.css',
                     'build/menus.css',
-                    'build/tables.css'
+                    'build/tables.css',
+                    'simple/css/bootstrap_simple_modal.css',
                 ]},
 
                 {'build/<%= nick %>-nr.css': [
@@ -101,7 +115,21 @@ grunt.initConfig({
                     'build/tables.css'
                 ]}
             ]
-        }
+        },
+        js: {
+          options: {
+            separator: ''
+          },
+          src: [
+            'src/js/util.js',
+            'src/js/side.js',
+            'src/js/gallery.js',
+            'src/js/autocomplete.js',
+            'src/js/scroll_loading.js',
+            'simple/js/*.js'
+             ],
+          dest: 'dist/pure.js'
+        },
     },
 
     // -- PostCSS Config --------------------------------------------------------
@@ -203,7 +231,7 @@ grunt.initConfig({
             dest: 'build/grids-units.css',
 
             options: {
-                units: [5, 24]
+                units: [3]
             }
         },
 
@@ -211,6 +239,7 @@ grunt.initConfig({
             dest: 'build/grids-responsive.css',
 
             options: {
+                units: 3,
                 mediaQueries: {
                     sm: 'screen and (min-width: 35.5em)',   // 568px
                     md: 'screen and (min-width: 48em)',     // 768px
@@ -257,6 +286,22 @@ grunt.initConfig({
                 interrupt: true
             }
         }
+    },
+    // -- js----
+    jshint: {
+      default: {
+        src: [ 'src/js/*.js', 'simple/js/*.js']
+      }
+    },
+    uglify: {
+      options: {
+        banner: ''
+      },
+      dist: {
+        files: {
+          'dist/pure.min.js': ['dist/pure.js']
+        }
+      }
     }
 });
 
@@ -274,6 +319,8 @@ grunt.loadNpmTasks('grunt-css-selectors');
 grunt.loadNpmTasks('grunt-postcss');
 grunt.loadNpmTasks('grunt-pure-grids');
 grunt.loadNpmTasks('grunt-stripmq');
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-jshint');
 
 // Local tasks.
 grunt.loadTasks('tasks/');
@@ -297,6 +344,7 @@ grunt.registerTask('build', [
 // Makes the `watch` task run a build first.
 grunt.renameTask('watch', 'observe');
 grunt.registerTask('watch', ['default', 'observe']);
+grunt.registerTask('js', ['concat:js','uglify','copy:js']);
 
 grunt.registerTask('release', [
     'default',
