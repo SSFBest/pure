@@ -1,4 +1,57 @@
 var imageGallery = {
+    gallery:function(){
+        function NextImg() {
+           if (current == imgMaxNum-1) {
+               ShowImg(0);
+               return false;
+           }
+           return ShowImg(current + 1);
+        };
+        function PrevImg() {
+           if (current == 0) {
+               ShowImg(imgMaxNum-1);
+               return false;
+           }
+           return ShowImg(current - 1);
+       };
+
+        function ShowImg(index) {
+           current = index;
+           var curLnk = $carouselItems.eq(current).find("a");
+           curLnk.parent().parent().children("li").removeClass("current");
+           curLnk.parent().addClass("current");
+           $('.gallery .panel-image').addClass('div-loading')
+            $('.gallery .panel-image>a').attr("href", curLnk.attr("link"));
+            $('.gallery .panel-image>a').attr("title", curLnk.attr("title"));
+           $('.gallery .panel-image>a>img').attr("src", curLnk.attr("bimg"));
+           $('.gallery .panel-image>a>img').attr("alt", curLnk.attr("title"));
+           $('.gallery .panel-image .intro').find('div.logo').html(curLnk.children().filter('div').first().html());
+           $('.gallery .panel-image .intro').find('div.text').html(curLnk.children().filter('div').last().html());
+           return false;
+        };
+        var imgMaxNum = 8,
+        $carouselEl = $( '.gallery .thumbs ul' ),
+        $carouselItems = $carouselEl.children(),
+        current = 0;
+
+        $carouselEl.on( 'click.elastislide', 'li', function( event ) {
+                var $item = $( this );
+                var pos=$item.index();
+                ShowImg(pos);
+                event.preventDefault();
+            });
+        // 绑定载入事件
+        $('.gallery .panel-image>a>img').bind("load", function () {
+            $('.gallery .panel-image').removeClass('div-loading');
+        });
+
+        $('.gallery .panel-image .pre-btn').bind("click", function () {
+            return PrevImg();;
+        });
+        $('.gallery .panel-image .next-btn').bind("click", function () {
+            return NextImg();
+        });
+    },
     fade: function() {
         var Item = $('.item-wrapper').find('.item');
         var len = Item.length;

@@ -32,7 +32,7 @@ var sideWrap = {
     },
     up_side:function(maxSize,ck,link){
         var _t=this,clz='side-btns-wrap',aClz='side-btns-wrap-resize',
-        inner_html = '<div class="side-btns-top"><a class="side-btns-feed-btn" href="'+link.feedback+'" target="_blank" title="反馈问题"  hidefocus><span class="glyphicon glyphicon-pencil"></span></a><a class="side-btns-feed-btn" href="javascript:;" title="返回顶部"  hidefocus><span class="glyphicon glyphicon-menu-up"></span></a><a class="side-btns-feed-btn" href="javascript:;" title="关闭"  hidefocus><span class="glyphicon glyphicon-remove"></span></a></div>';
+        inner_html = '<div class="side-btns-top"><a href="'+link.feedback+'" target="_blank" title="反馈问题"  hidefocus><span class="icon-feedback mb-2"></span></a><a href="javascript:;" title="返回顶部"  hidefocus><span class="icon-up"></span></a></div>';
         side=_t.create_side(clz,inner_html),
         nClz = clz + ' ' + aClz,
         cookieName = ck.name || 'close_newsidxtop',
@@ -40,7 +40,7 @@ var sideWrap = {
         path = ck.path || '/',
         lnks = side.getElementsByTagName('a'),
         up_btn = lnks[1],
-        close_btn = lnks[2],
+        // close_btn = lnks[2],
         display = cookie.getCookie(cookieName);
         if (display != '') {
             _t.sideToggle(side,'none');
@@ -49,16 +49,16 @@ var sideWrap = {
         _t.sideToggle(side,'none');
         _t.resize(side,maxSize,clz,nClz);
         addEvent(window, 'resize', function(e){_t.resize(side,maxSize,clz,nClz);});
-        addEvent(close_btn, 'click',
-            function(e) {
-                _t.sideToggle(side,'none');
-                cookie.setCookie(cookieName, '1', 15 * 24, path, domain);
-                if (window.event) {
-                    window.event.returnValue = false;
-                } else {
-                    e.preventDefault();
-                }
-            });
+        // addEvent(close_btn, 'click',
+        //     function(e) {
+        //         _t.sideToggle(side,'none');
+        //         cookie.setCookie(cookieName, '1', 15 * 24, path, domain);
+        //         if (window.event) {
+        //             window.event.returnValue = false;
+        //         } else {
+        //             e.preventDefault();
+        //         }
+        //     });
         addEvent(window, 'scroll', function(e){_t.toggle(side);});
         addEvent(up_btn, 'click', toTop);
     },
