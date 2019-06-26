@@ -25,6 +25,7 @@ grunt.initConfig({
     clean: {
         build    : ['build/'],
         build_res: ['build/*-r.css'],
+        css_mm    : ['build/mm.css','build/mm-min.css'],
         release  : ['release/<%= pkg.version %>/']
     },
 
@@ -53,7 +54,26 @@ grunt.initConfig({
             dest   : 'D:/mywork/yueliang/static/css/',
             expand : true,
             flatten: true
-        }
+        },
+        css_mm: {
+            src    : 'src/mm/*.css',
+            dest   : 'build/',
+            expand : true,
+            flatten: true
+        },
+
+        css_from_mm:{
+            src    : ['D:/mywork/yueliang/static/css/article/*.css','D:/mywork/yueliang/static/css/common/*.css'],
+            dest   : 'src/mm/',
+            expand : true,
+            flatten: true
+        },
+        css_to_mm:{
+            src    : 'build/mm-min.css',
+            dest   : 'D:/mywork/yueliang/static/css/',
+            expand : true,
+            flatten: true
+        },
     },
 
     // -- Concat Config --------------------------------------------------------
@@ -105,6 +125,17 @@ grunt.initConfig({
                     'build/tables.css',
                     'simple/css/bootstrap_simple_modal.css',
                 ]},
+                {'build/mm.css': [
+                    'simple/css/bootstrap_simple_util.css',
+                    'build/base.css',
+                    'build/grids.css',
+                    'build/buttons.css',
+                    'build/forms.css',
+                    'build/menus.css',
+                    'build/tables.css',
+                    'simple/css/bootstrap_simple_modal.css',
+                ]},
+
 
                 {'build/<%= nick %>-nr.css': [
                     'build/base.css',
@@ -115,6 +146,15 @@ grunt.initConfig({
                     'build/tables.css'
                 ]}
             ]
+        },
+        css_mm:{
+            files: [
+                {'build/mm.css': [
+                    'build/ylcommon.css',
+                    'build/common.css',
+                    'build/act.css',
+                    'build/goodslist.css'
+                ]}]
         },
         js: {
           options: {
@@ -345,6 +385,7 @@ grunt.registerTask('build', [
 grunt.renameTask('watch', 'observe');
 grunt.registerTask('watch', ['default', 'observe']);
 grunt.registerTask('js', ['concat:js','uglify','copy:js']);
+grunt.registerTask('cssmm', ['clean:build','copy:css_from_mm','copy:css_mm','concat:css_mm','postcss','cssmin','copy:css_to_mm']);
 
 grunt.registerTask('release', [
     'default',
