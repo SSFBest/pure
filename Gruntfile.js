@@ -28,6 +28,7 @@ grunt.initConfig({
         build    : ['build/'],
         build_res: ['build/*-r.css'],
         mm    : ['src/mm/'],
+        dist    : ['dist/'],
         release  : ['release/<%= pkg.version %>/']
     },
 
@@ -45,9 +46,15 @@ grunt.initConfig({
             src : '{LICENSE.md,README.md,HISTORY.md}',
             dest: 'build/'
         },
-        js:{
-            src    : 'dist/*.min.js',
+        jsyl:{
+            src    : 'dist/mm.min.js',
             dest   : 'D:/mywork/yueliang/static/js/',
+            expand : true,
+            flatten: true
+        },
+        jsylm:{
+            src    : 'dist/mm.min.js',
+            dest   : 'D:/mywork/yueliang/static/js/phone/',
             expand : true,
             flatten: true
         },
@@ -179,19 +186,32 @@ grunt.initConfig({
                     'build/goodslist.css'
                 ]}]
         },
-        js: {
+        jsyl: {
           options: {
             separator: ''
           },
           src: [
-            'src/js/util.js',
-            'src/js/side.js',
-            'src/js/gallery.js',
-            'src/js/autocomplete.js',
-            'src/js/scroll_loading.js',
+            'src/js/yl/util.js',
+            'src/js/yl/side.js',
+            'src/js/yl/gallery.js',
+            'src/js/yl/autocomplete.js',
+            'src/js/yl/scroll_loading.js',
             'simple/js/*.js'
              ],
-          dest: 'dist/pure.js'
+          dest: 'dist/mm.js'
+        },
+        jsylm: {
+          options: {
+            separator: ''
+          },
+          src: [
+            'src/js/ylm/util.js',
+            'src/js/ylm/side.js',
+            'src/js/ylm/autocomplete.js',
+            'src/js/ylm/scroll_loading.js',
+            'simple/js/*.js'
+             ],
+          dest: 'dist/mm.js'
         },
     },
 
@@ -362,7 +382,7 @@ grunt.initConfig({
       },
       dist: {
         files: {
-          'dist/pure.min.js': ['dist/pure.js']
+          'dist/mm.min.js': ['dist/mm.js']
         }
       }
     }
@@ -407,7 +427,8 @@ grunt.registerTask('build', [
 // Makes the `watch` task run a build first.
 grunt.renameTask('watch', 'observe');
 grunt.registerTask('watch', ['default', 'observe']);
-grunt.registerTask('js', ['concat:js','uglify','copy:js']);
+grunt.registerTask('jsyl', ['clean:dist','concat:jsyl','uglify','copy:jsyl']);
+grunt.registerTask('jsylm', ['clean:dist','concat:jsylm','uglify','copy:jsylm']);
 grunt.registerTask('cssyl', ['clean:build','clean:mm','copy:css_from_yl','copy:css_mm','concat:css_yl','postcss','cssmin','copy:css_to_yl']);
 grunt.registerTask('cssylm', ['clean:build','clean:mm','copy:css_from_ylm','copy:css_mm','concat:css_ylm','postcss','cssmin','copy:css_to_ylm']);
 
