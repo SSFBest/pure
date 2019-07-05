@@ -27,7 +27,7 @@ grunt.initConfig({
     clean: {
         build    : ['build/'],
         build_res: ['build/*-r.css'],
-        css_mm    : ['build/mm.css','build/mm-min.css'],
+        mm    : ['src/mm/'],
         release  : ['release/<%= pkg.version %>/']
     },
 
@@ -64,13 +64,13 @@ grunt.initConfig({
             flatten: true
         },
 
-        css_from_mm:{
+        css_from_yl:{
             src    : ['D:/mywork/yueliang/static/css/article/*.css','D:/mywork/yueliang/static/css/common/*.css'],
             dest   : 'src/mm/',
             expand : true,
             flatten: true
         },
-        css_to_mm:{
+        css_to_yl:{
             src    : 'build/mm-min.css',
             dest   : 'D:/mywork/yueliang/static/css/',
             expand : true,
@@ -149,7 +149,7 @@ grunt.initConfig({
                 ]}
             ]
         },
-        css_mm:{
+        css_yl:{
             files: [
                 {'build/mm.css': [
                     'build/ylcommon.css',
@@ -387,7 +387,7 @@ grunt.registerTask('build', [
 grunt.renameTask('watch', 'observe');
 grunt.registerTask('watch', ['default', 'observe']);
 grunt.registerTask('js', ['concat:js','uglify','copy:js']);
-grunt.registerTask('cssmm', ['clean:build','copy:css_from_mm','copy:css_mm','concat:css_mm','postcss','cssmin','copy:css_to_mm']);
+grunt.registerTask('cssyl', ['clean:build','clean:mm','copy:css_from_yl','copy:css_mm','concat:css_yl','postcss','cssmin','copy:css_to_yl']);
 
 grunt.registerTask('release', [
     'default',
