@@ -76,6 +76,18 @@ grunt.initConfig({
             expand : true,
             flatten: true
         },
+        css_from_ylm:{
+            src    : ['D:/mywork/yueliang/static/css/phone/article/*.css','D:/mywork/yueliang/static/css/phone/common/*.css'],
+            dest   : 'src/mm/',
+            expand : true,
+            flatten: true
+        },
+        css_to_ylm:{
+            src    : 'build/mm-min.css',
+            dest   : 'D:/mywork/yueliang/static/css/phone/',
+            expand : true,
+            flatten: true
+        },
     },
 
     // -- Concat Config --------------------------------------------------------
@@ -150,6 +162,15 @@ grunt.initConfig({
             ]
         },
         css_yl:{
+            files: [
+                {'build/mm.css': [
+                    'build/ylcommon.css',
+                    'build/common.css',
+                    'build/act.css',
+                    'build/goodslist.css'
+                ]}]
+        },
+        css_ylm:{
             files: [
                 {'build/mm.css': [
                     'build/ylcommon.css',
@@ -388,6 +409,7 @@ grunt.renameTask('watch', 'observe');
 grunt.registerTask('watch', ['default', 'observe']);
 grunt.registerTask('js', ['concat:js','uglify','copy:js']);
 grunt.registerTask('cssyl', ['clean:build','clean:mm','copy:css_from_yl','copy:css_mm','concat:css_yl','postcss','cssmin','copy:css_to_yl']);
+grunt.registerTask('cssylm', ['clean:build','clean:mm','copy:css_from_ylm','copy:css_mm','concat:css_ylm','postcss','cssmin','copy:css_to_ylm']);
 
 grunt.registerTask('release', [
     'default',
