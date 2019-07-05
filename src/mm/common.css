@@ -29,16 +29,7 @@
 .col-hot ul li span a{
   color:#c00;
 }
-.yl-zhida{
-  padding: 0px 10px;
-  border-bottom: 1px #e3e9eb dotted;
-}
 
-.yl-zhida .img{
-  width:62.7px;
-  height:70px;
-  padding: 0 0.5px;
-}
 
 .yl-pills .pills{
   border-bottom: 1px solid #f0f0f0;
@@ -100,7 +91,7 @@
 }
 .yl-pills .content .qiang li{
   width: 10%;
-  padding: 1rem;
+padding: 1rem .5rem;
 }
 .yl-pills .content .qiang li.active
 {

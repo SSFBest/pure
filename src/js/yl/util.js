@@ -70,10 +70,9 @@ loadScript=function(url,callback){
     document.getElementsByTagName("head")[0].appendChild(script);
 },
 notice_func=function(msg) {
-            var s1 = "<div class='modal in'><div class='modal-dialog modal-sm'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close' ><span>×</span></button><h4 class='modal-title'>提示</h4></div><div class='modal-body'>",
+            var s1 = "<div class='modal fade'><div class='modal-dialog modal-dialog-centered modal-sm'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>提示</h5><button type='button' class='close' data-dismiss='modal'><span>×</span></button></div><div class='modal-body'>",
             s2 = "</div></div></div></div>";
             $("body").append(s1 + msg + s2);
-            // alert(s1 + msg + s2);
             $(".modal").fadeIn("normal",
             function() {
                 setTimeout(function() {
@@ -87,7 +86,7 @@ notice_func=function(msg) {
 },
 notice_mask_func=function(msg) {
 
-            var s1 = "<div class='modal in'><div class='modal-dialog modal-sm'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close' ><span>×</span></button><h4 class='modal-title'>提示</h4></div><div class='modal-body'>",
+            var s1 = "<div class='modal in'><div class='modal-dialog modal-dialog-centered modal-sm'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>提示</h5><button type='button' class='close' data-dismiss='modal'><span>×</span></button></div><div class='modal-body'>",
             s2 = "</div></div></div></div>";
             $("body").append(s1 + msg + s2);
             $('.modal').on('shown.bs.modal', function (e) {
