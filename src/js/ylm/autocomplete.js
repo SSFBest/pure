@@ -102,7 +102,7 @@ Autocomplete.prototype.show_results_tmall = function(data) {
     // Remove any existing results.
     $('.ac-results').remove();
     var results = data.result || [];
-    var results_wrapper = $('<div class="ac-results"></div>');
+    var results_wrapper = $('<div class="ac-results mx-3"></div>');
     var base_elem = $('<div class="result-wrapper"><a href="#" class="ac-result"></a></div>');
     if(results.length > 0) {
         for(var res_offset in results) {
