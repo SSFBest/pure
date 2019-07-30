@@ -38,7 +38,7 @@ Autocomplete.prototype.setup = function(hostname) {
             self.form_elem.attr('action','https://quan.tduoduo.com/so/quan');
         }else{
            // self.form_elem.attr('action','https://www.tduoduo.com/so/jd')
-           self.form_elem.attr('action','https://www.tduoduo.com/so/quan');
+           self.form_elem.attr('action','https://www.mmqnr.com/so/quan');
         }
         self.form_elem.submit();
         return false;
