@@ -15,6 +15,7 @@ var common={
             e.stopPropagation();
         });
     },
+
     search_toggle:function(){
         $('.custom-search-toggle').on('click', function () {
                 $('.offcanvas-search').toggleClass('open');

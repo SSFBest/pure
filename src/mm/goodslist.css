@@ -133,6 +133,12 @@ color:#c00;
   color: #666;
   overflow: hidden;
 }
+.yl-content-list .content-item .content-txt-nh{
+  font-size: .8rem;
+  line-height: 1.5;
+  color: #666;
+  overflow: hidden;
+}
 .yl-content-list .content-item .content-txt a{
   color:#c00;
 }
