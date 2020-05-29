@@ -1,31 +1,16 @@
 header .info{
   height: 2rem;
   line-height: 2rem;
-  height: 11vw;
-  line-height: 11vw;
   }
 header .info2{
-  height: 3rem;
-  line-height: 3rem;
-  height: 14vw;
-  line-height: 14vw;
+  height: 4rem;
+  line-height: 4rem;
   }
-@media only screen and (min-width: 480px){
-  header .info{
-  height: 2rem;
-  line-height: 2rem;
-
-  }
-header .info2{
-  height: 3rem;
-  line-height: 3rem;
-  }
-}
 header  .info2 .mobile{
   position: relative;
 }
 
-/*header  .info2 .mobile .share-code{
+header  .info2 .mobile .share-code{
   position: absolute;
   bottom: 0;
   left: 103px;
@@ -33,7 +18,7 @@ header  .info2 .mobile{
   padding:18px;
   z-index: 500;
   line-height: 1;
-}*/
+}
 article .content{
   line-height: 2rem;
 }
@@ -52,15 +37,15 @@ article .content .goods_ref h3 a{
 .goods_ref{
  margin:1.5rem auto;
  padding: 15px 10px;
- /*border: 2px solid #e9e9e9;*/
+ border: 2px solid #e9e9e9;
  transition: border-color .1s ease;
- /*width: 80%*/
+ width: 80%;
  display: block;
 }
 
 .goods_ref:hover{
- /*border-color: #c00;*/
- /*box-shadow: 0 0 2px 2px #f8f8f8;*/
+ border-color: #c00;
+ box-shadow: 0 0 2px 2px #f8f8f8;
 }
 .goods_ref:before{
   display: table;
@@ -70,6 +55,9 @@ article .content .goods_ref h3 a{
   display: table;
   content: " ";
   clear: both;
+}
+.goods_ref .info{
+  display: block;
 }
 .goods_ref .info i{
     margin: 4px 10px 0 0;
