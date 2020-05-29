@@ -66,7 +66,7 @@ var sideWrap = {
         var _t=this,clz='side-right-wrap',aClz='side-right-wrap-resize';
         if(right.link=='true'){
           var inner_html='<a href="'+right.link_url+'">';
-          inner_html=inner_html+'<img src="'+right.link_img+'"/>';
+          inner_html=inner_html+'<img style="width:100px" src="'+right.link_img+'"/>';
           inner_html=inner_html+'</a>';
         }else{
           var inner_html='<div class="right-small"></div>';
