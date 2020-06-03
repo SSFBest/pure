@@ -65,7 +65,7 @@ var sideWrap = {
     hongbao_side:function(maxSize,right){
         var _t=this,clz='side-right-wrap',aClz='side-right-wrap-resize';
         if(right.link=='true'){
-          var inner_html='<a href="'+right.link_url+'">';
+          var inner_html='<a href="'+right.link_url+'" target="_blank">';
           inner_html=inner_html+'<img style="width:100px" src="'+right.link_img+'"/>';
           inner_html=inner_html+'</a>';
         }else{
