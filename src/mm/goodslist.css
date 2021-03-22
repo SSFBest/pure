@@ -131,20 +131,17 @@ color:#c00;
 }
 
 .yl-content-list .content-item .content-txt{
-  font-size: .9rem;
+  font-size: .8rem;
   height:10.5em;
   line-height: 1.5;
   color: #666;
   overflow: hidden;
 }
 .yl-content-list .content-item .content-txt-nh{
-  font-size: .9rem;
+  font-size: .8rem;
   line-height: 1.5;
   color: #666;
   overflow: hidden;
-}
-.yl-content-list .content-item .content-txt p{
-  margin-bottom: 0;
 }
 .yl-content-list .content-item .content-txt a{
   color:#c00;
@@ -153,12 +150,6 @@ color:#c00;
 .yl-content-list .content-item .info{
   font-size: .8rem;
   height: 1.5rem;
-  line-height: 1.5rem;
-}
-.yl-content-list .content-item .info .tag span{
-  background: #f4f5f6;
-  padding: .2rem .4rem;
-  border-radius: 0.25rem;
 }
 
 
@@ -170,7 +161,7 @@ color:#c00;
 }
 
 .yl-content-list .ias-noneleft{
-  /*position: absolute;*/
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
@@ -180,27 +171,12 @@ color:#c00;
 
 .yl-temai-item .yl-temai{
     position: relative;
-    width: 490px;
-    height: 180px;
 }
 .yl-temai-item .yl-temai .logo{
-    padding: 0px;
-    height: 70px;
-    width: 70px;
-    overflow: hidden;
-    text-align: center;
     border-radius: 50%;
     background: #fff;
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    margin-left: -35px;
-    z-index: 4;
 }
-.yl-temai-item .yl-temai .logo>img{
-  vertical-align: middle;
-  display: inline;
-}
+
 .yl-temai-item .yl-temai .mask{
     background: rgba(0,0,0,.4);
     z-index: 3;
@@ -212,86 +188,28 @@ color:#c00;
 }
 .yl-temai-item .text{
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
     text-align: center;
     color: #fff;
     z-index: 4;
+    background-color: #000;
 }
 .yl-temai-item .text .be{
-    margin-top: 100px;
     font-size: 1.2rem;
-    line-height: 1.7;
-    font-weight: 600;
 }
 .yl-temai-item .text .countdown{
-    margin-top: 8px;
     font-size: .8rem;
     line-height: 1.6;
 }
-.yl-temai-item .yl-temai-recommend{
-    width:578px;
-    height: 180px;
+@media only screen and (min-width: 480px){
+  .yl-temai-item .yl-temai{
+    width: 480px;
 }
-.yl-temai-recommend .info{
-    height: 40px;
-    line-height: 40px;
-}
-.yl-temai-recommend .info .tips{
-    margin: 0 20px;
-    font-size: 1.2rem;
-}
-.yl-temai-recommend .more{
-    color:#f40;
-    font-size: .8rem;
 }
 
-.yl-temai-recommend .num{
-    border: 1px solid #fb3434;
-    color: #fb3434;
-    padding: 3px 10px;
-    background: #fff;
-    border-radius: 29px;
-    transition: .2s;
-    display: inline;
-    font-size: .8rem;
-}
-.yl-temai-recommend .num:hover{
-    background: #fb3434;
-    color: #fff;
-}
-.yl-temai-recommend .num:hover i{
-    border-color: transparent #fff #fff transparent;
-}
-.yl-temai-recommend .num i{
-    display: inline-block;
-    transform: rotate(-45deg);
-    border: 1px solid;
-    width: 8px;
-    height: 8px;
-    transition: .2s;
-    border-color: transparent #fb3434 #fb3434 transparent;
-    line-height: 12px;
-}
-.yl-temai-item .recommend{
-    width:33.333%;
-    height:120px;
-
-}
-.yl-temai-item .recommend .img{
-    height: 120px;
-    width: 120px;
-}
-
-.yl-temai-item .recommend .price{
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    font-size: .8rem;
-    color: #999;
-}
 
 .temai-content-image{
     position: relative;
