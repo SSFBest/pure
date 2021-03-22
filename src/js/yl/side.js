@@ -231,7 +231,7 @@ var sideWrap = {
         _t.search_toggle();
         _t.clear();
         window.autocomplete = new Autocomplete({
-          form_selector: '.yl-nav-header .search>form',
+          form_selector: '.yl-nav-header .search>form,.page .search>form',
           minimum_length:1,
           delay:500
         });

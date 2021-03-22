@@ -34,11 +34,16 @@ Autocomplete.prototype.setup = function(hostname) {
     });
     this.form_elem.on('click', '#buttonforsearch_all', function(ev) {
         // self.query_box.val($(this).text())
+        var open_=self.form_elem.attr('open_');
+        if (typeof(open_) === 'undefined'){
+            open_='tmall';
+        }
         if (hostname === 'quan.tduoduo.com'){
-            self.form_elem.attr('action','https://quan.tduoduo.com/so/quan');
+            self.form_elem.attr('action','https://quan.tduoduo.com/so/'+open_);
         }else{
            // self.form_elem.attr('action','https://www.tduoduo.com/so/jd')
-           self.form_elem.attr('action','https://www.mmqnr.com/so/quan');
+           // console.log(open_);
+           self.form_elem.attr('action','https://www.mmqnr.com/so/'+open_);
         }
         self.form_elem.submit();
         return false;
@@ -102,7 +107,7 @@ Autocomplete.prototype.show_results_tmall = function(data) {
     // Remove any existing results.
     $('.ac-results').remove();
     var results = data.result || [];
-    var results_wrapper = $('<div class="ac-results mx-3"></div>');
+    var results_wrapper = $('<div class="ac-results"></div>');
     var base_elem = $('<div class="result-wrapper"><a href="#" class="ac-result"></a></div>');
     if(results.length > 0) {
         for(var res_offset in results) {

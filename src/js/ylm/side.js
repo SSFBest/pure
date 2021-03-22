@@ -25,8 +25,12 @@ var common={
         var toggle=document.getElementById('toggle');
         if(toggle != null){
             toggle.addEventListener('click', function (e) {
+                  if ($('.offcanvas-search').hasClass('open')){
+                    $('.offcanvas-search').removeClass('open');
+                  }else{
                   document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
                   document.getElementById('toggle').classList.toggle('x');
+                }
             });
         }
     },
@@ -47,7 +51,7 @@ var common={
         _t.search_toggle();
         _t.clear();
         window.offcanvas_search = new Autocomplete({
-          form_selector: '.offcanvas-search .search>form',
+          form_selector: '.offcanvas-search .search>form,.page .search>form',
           minimum_length:1,
           delay:500
         });
