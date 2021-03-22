@@ -34,11 +34,16 @@ Autocomplete.prototype.setup = function(hostname) {
     });
     this.form_elem.on('click', '#buttonforsearch_all', function(ev) {
         // self.query_box.val($(this).text())
+        var open_=self.form_elem.attr('open_');
+        if (typeof(open_) === 'undefined'){
+            open_='tmall';
+        }
         if (hostname === 'quan.tduoduo.com'){
-            self.form_elem.attr('action','https://quan.tduoduo.com/so/quan');
+            self.form_elem.attr('action','https://quan.tduoduo.com/so/'+open_);
         }else{
            // self.form_elem.attr('action','https://www.tduoduo.com/so/jd')
-           self.form_elem.attr('action','https://www.mmqnr.com/so/quan');
+           // console.log(open_);
+           self.form_elem.attr('action','https://www.mmqnr.com/so/'+open_);
         }
         self.form_elem.submit();
         return false;

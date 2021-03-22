@@ -326,6 +326,7 @@ padding: 0 2px;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 .img-box.img-box-search:before{
   padding-top: 25%;
