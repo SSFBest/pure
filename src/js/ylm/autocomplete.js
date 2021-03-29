@@ -35,6 +35,9 @@ Autocomplete.prototype.setup = function(hostname) {
     this.form_elem.on('click', '#buttonforsearch_all', function(ev) {
         // self.query_box.val($(this).text())
         var open_=self.form_elem.attr('open_');
+        // console.log($(this));
+        // console.log($(this).text());
+        // console.log(open_);
         if (typeof(open_) === 'undefined'){
             open_='tmall';
         }
@@ -45,6 +48,7 @@ Autocomplete.prototype.setup = function(hostname) {
            // console.log(open_);
            self.form_elem.attr('action','https://www.mmqnr.com/so/'+open_);
         }
+        // console.log(self.query_box.val());
         self.form_elem.submit();
         return false;
     });

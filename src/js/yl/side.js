@@ -200,6 +200,9 @@ var sideWrap = {
         });
     },
     clear:function(){
+        if ($('#menu-layout').hasClass('hidden')){
+            $('#menu-layout').removeClass('hidden');
+        }
         $(document).on('click',function(e){
             $('.ac-results').remove();
             if ($('#menu-layout').hasClass('active')){
@@ -231,11 +234,17 @@ var sideWrap = {
         _t.search_toggle();
         _t.clear();
         window.autocomplete = new Autocomplete({
-          form_selector: '.yl-nav-header .search>form,.page .search>form',
+          form_selector: '.yl-nav-header .search>form',
           minimum_length:1,
           delay:500
         });
         window.autocomplete.setup(window.location.hostname);
+        window.page_search = new Autocomplete({
+          form_selector: '.page .search>form',
+          minimum_length:1,
+          delay:500
+        });
+        window.page_search.setup(window.location.hostname);
     },
     setup_quan:function(){
         _t=this;

@@ -35,6 +35,9 @@ var common={
         }
     },
     clear:function(){
+        if ($('.offcanvas-search').hasClass('hidden')){
+            $('.offcanvas-search').removeClass('hidden');
+        }
         $(document).on('click',function(e){
             $('.ac-results').remove();
             if ($('#menu-layout').hasClass('active')){
@@ -51,11 +54,17 @@ var common={
         _t.search_toggle();
         _t.clear();
         window.offcanvas_search = new Autocomplete({
-          form_selector: '.offcanvas-search .search>form,.page .search>form',
+          form_selector: '.offcanvas-search .search>form',
           minimum_length:1,
           delay:500
         });
         window.offcanvas_search.setup(window.location.hostname);
+        window.page_search = new Autocomplete({
+          form_selector: '.page .search>form',
+          minimum_length:1,
+          delay:500
+        });
+        window.page_search.setup(window.location.hostname);
     }
 
 };
